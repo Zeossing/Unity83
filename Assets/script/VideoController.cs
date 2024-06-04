@@ -5,6 +5,8 @@ public class VideoController : MonoBehaviour
 {
     public VideoPlayer videoPlayer; // อ้างถึง VideoPlayer ของคุณ
     public GameObject objectToShow; // อ้างถึง GameObject ที่จะทำให้แสดง
+    public AudioSource audioSource; // อ้างถึง AudioSource สำหรับเล่นเสียงเพลง
+    public AudioClip musicClip; // อ้างถึง AudioClip เพื่อให้ AudioSource เล่น
 
     void Start()
     {
@@ -17,6 +19,10 @@ public class VideoController : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
+        // เล่นเสียงเพลง
+        audioSource.clip = musicClip;
+        audioSource.Play();
+
         // แสดง GameObject เมื่อวิดีโอจบ
         objectToShow.SetActive(true);
     }

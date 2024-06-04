@@ -1,76 +1,54 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ScoreManager : MonoBehaviour
 {
-    public static ScoreManager instance; // Singleton instance
+    public static ScoreManager instance;
+    public int score = 0;
 
-    public Text scoreText;
-    public Image imageToChange;
-    public Sprite newSprite;
-    public Sprite originalSprite;
-
-    public int score = 0; // ทำให้ตัวแปร score สาธารณะ
-    private bool hasReached100 = false;
-
-    void Awake()
+    private void Awake()
     {
-        // เช็คถ้ามี instance อยู่แล้วทำลายออบเจ็กต์นี้
-        if (instance != null && instance != this)
+        if (instance == null)
         {
-            Destroy(this.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            instance = this;
-            DontDestroyOnLoad(this.gameObject); // ไม่ทำลายออบเจ็กต์นี้เมื่อเปลี่ยนฉาก
+            Destroy(gameObject);
         }
+
+        // Load score from PlayerPrefs
+        LoadScore();
     }
 
-    void Start()
+    public void AddScore(int value)
     {
-        score = PlayerPrefs.GetInt("Score", 0);
-        UpdateScoreText();
+        score += value;
+        SaveScore();
     }
 
-    public void AddScore(int scoreToAdd)
+    public void ResetScore()
     {
-        score += scoreToAdd;
-        UpdateScoreText();
+        score = 0;
+        SaveScore();
+    }
 
-        if (score >= 100 && !hasReached100)
+    public void SaveScore()
+    {
+        PlayerPrefs.SetInt("PlayerScore", score);
+    }
+
+    public void LoadScore()
+    {
+        if (PlayerPrefs.HasKey("PlayerScore"))
         {
-            hasReached100 = true;
-            ChangeImage(newSprite);
-        }
-        else if (score < 100 && hasReached100)
-        {
-            hasReached100 = false;
-            ChangeImage(originalSprite);
+            score = PlayerPrefs.GetInt("PlayerScore");
         }
     }
 
-    void UpdateScoreText()
+    public void LoadScene(string sceneName)
     {
-        if (scoreText != null)
-        {
-            scoreText.text = "Score: " + score.ToString();
-        }
-    }
-
-    void OnDisable()
-    {
-        PlayerPrefs.SetInt("Score", score);
-        PlayerPrefs.Save();
-    }
-
-    void ChangeImage(Sprite newSprite)
-    {
-        if (imageToChange != null && newSprite != null)
-        {
-            imageToChange.sprite = newSprite;
-        }
+        SceneManager.LoadScene(sceneName);
     }
 }

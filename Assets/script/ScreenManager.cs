@@ -36,29 +36,4 @@ public class ScreenManager : MonoBehaviour
     {
         SceneManager.LoadSceneAsync("StartSection_1");
     }
-
-    public void LoadScreenSection_1_1()
-    {
-        SceneManager.LoadSceneAsync("Section_1_1");
-    }
-
-    public void LoadScreenSection_1_2()
-    {
-        SceneManager.LoadSceneAsync("Section_1_2");
-    }
-
-    public void LoadScreenSection_1_1_1()
-    {
-        SceneManager.LoadSceneAsync("Section_1_1_1");
-    }
-
-    public void LoadScreenSection_1_1_2()
-    {
-        SceneManager.LoadSceneAsync("Section_1_1_2");
-    }
-
-    public void LoadScreenSection_1_1_3()
-    {
-        SceneManager.LoadSceneAsync("Section_1_1_3");
-    }
 }

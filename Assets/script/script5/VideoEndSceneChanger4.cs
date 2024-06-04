@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Video;
 using UnityEngine.SceneManagement;
 
-public class VideoEndSceneChanger : MonoBehaviour
+public class VideoEndSceneChanger4 : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public string nextSceneName;
@@ -27,9 +27,9 @@ public class VideoEndSceneChanger : MonoBehaviour
 
     void OnVideoEnd(VideoPlayer vp)
     {
-        if (ScoreManager.instance != null)
+        if (ScoreManager4.instance != null) // แก้จาก ScoreManager3 เป็น ScoreManager4
         {
-            ScoreManager.instance.AddScore(scoreToAdd);
+            ScoreManager4.instance.AddScore(scoreToAdd); // แก้จาก ScoreManager3 เป็น ScoreManager4
         }
         SceneManager.LoadScene(nextSceneName);
     }

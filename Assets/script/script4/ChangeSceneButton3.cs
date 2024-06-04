@@ -1,31 +1,36 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChangeSceneButton : MonoBehaviour
+public class ChangeSceneButton3 : MonoBehaviour
 {
-    public string nextSceneName;
-    public int scoreToAdd;
-    public bool resetScore;
+    public string nextSceneName; // The name of the scene to load
+    public int scoreToAdd; // The amount of score to add when the button is clicked
+    public bool resetScore; // Whether to reset the score when the button is clicked
 
     void Start()
     {
+        // Add a listener to the button's onClick event
         GetComponent<Button>().onClick.AddListener(OnButtonClick);
     }
 
     void OnButtonClick()
     {
-        if (ScoreManager.instance != null)
+        // Check if the ScoreManager3 instance is available
+        if (ScoreManager3.instance != null)
         {
+            // Reset the score if resetScore is true
             if (resetScore)
             {
-                ScoreManager.instance.ResetScore();
+                ScoreManager3.instance.ResetScore();
             }
+            // Otherwise, add to the score
             else
             {
-                ScoreManager.instance.AddScore(scoreToAdd);
+                ScoreManager3.instance.AddScore(scoreToAdd);
             }
 
-            ScoreManager.instance.LoadScene(nextSceneName);
+            // Load the next scene
+            ScoreManager3.instance.LoadScene(nextSceneName);
         }
     }
 }

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreFeedback : MonoBehaviour
+public class ScoreFeedback4 : MonoBehaviour
 {
     public int twoStarScoreThreshold;
     public int threeStarScoreThreshold;
@@ -10,6 +10,8 @@ public class ScoreFeedback : MonoBehaviour
     public Image star3;
     public Text feedbackText;
     public Image imageToDisable; // รูปภาพที่ต้องการปิด
+    public Button buttonToEnable; // ปุ่มที่ต้องการเปิด
+
     void Start()
     {
         DisplayScoreFeedback();
@@ -17,7 +19,7 @@ public class ScoreFeedback : MonoBehaviour
 
     void DisplayScoreFeedback()
     {
-        int score = ScoreManager.instance.score;
+        int score = ScoreManager4.instance.score; // แก้จาก ScoreManager3 เป็น ScoreManager4
 
         if (score >= threeStarScoreThreshold)
         {
@@ -26,6 +28,7 @@ public class ScoreFeedback : MonoBehaviour
             star3.enabled = true;
             feedbackText.text = "สุดยอด!";
             imageToDisable.gameObject.SetActive(false); // ปิดรูปภาพ
+            buttonToEnable.interactable = true; // เปิดให้ปุ่มกดได้
         }
         else if (score >= twoStarScoreThreshold)
         {
@@ -34,6 +37,7 @@ public class ScoreFeedback : MonoBehaviour
             star3.enabled = false;
             feedbackText.text = "พยายามต่อนะ!";
             imageToDisable.gameObject.SetActive(true); // ปิดรูปภาพ
+            buttonToEnable.interactable = false; // ปิดให้ปุ่มไม่สามารถกดได้
         }
         else
         {
@@ -42,6 +46,7 @@ public class ScoreFeedback : MonoBehaviour
             star3.enabled = false;
             feedbackText.text = "พยายามอีกหน่อย!";
             imageToDisable.gameObject.SetActive(true); // ปิดรูปภาพ
+            buttonToEnable.interactable = false; // ปิดให้ปุ่มไม่สามารถกดได้
         }
     }
 }

@@ -1,9 +1,9 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class ScoreManager : MonoBehaviour
+public class ScoreManager3 : MonoBehaviour
 {
-    public static ScoreManager instance;
+    public static ScoreManager3 instance;
     public int score = 0;
 
     private void Awake()

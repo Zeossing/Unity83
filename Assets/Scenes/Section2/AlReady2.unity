@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -253,7 +252,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 333381089}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5760fbfb946a4408d9cf138ac32733, type: 3}
+  m_Script: {fileID: 11500000, guid: 8be552f3f32cfd44d856d6aeacb59019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: Select
@@ -630,7 +629,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 947533650}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c5760fbfb946a4408d9cf138ac32733, type: 3}
+  m_Script: {fileID: 11500000, guid: 8be552f3f32cfd44d856d6aeacb59019, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   nextSceneName: StartSection_2
@@ -1021,7 +1020,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1834410231}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c95b74dc9d5b1f640a92ce2fac057485, type: 3}
+  m_Script: {fileID: 11500000, guid: 65f1e03e56684cd499b9d28daa444cd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
@@ -1162,7 +1161,7 @@ GameObject:
   - component: {fileID: 1922553992}
   - component: {fileID: 1922553995}
   - component: {fileID: 1922553994}
-  - component: {fileID: 1922553993}
+  - component: {fileID: 1922553996}
   m_Layer: 5
   m_Name: score
   m_TagString: Untagged
@@ -1189,19 +1188,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 24}
   m_SizeDelta: {x: 800, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1922553993
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1922553991}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8921b54dc7351546af5befabb2dee8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scoreText: {fileID: 1922553994}
 --- !u!114 &1922553994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1244,6 +1230,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1922553991}
   m_CullTransparentMesh: 1
+--- !u!114 &1922553996
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922553991}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03a96249367ecf747ac166afb5fa8dad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1922553994}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
